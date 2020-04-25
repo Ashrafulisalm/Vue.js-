@@ -14,30 +14,14 @@
     <nav class="navbar navbar-dark bg-success"></nav>
     <nav class="navbar navbar-dark bg-success"></nav>
       <div class="row row-cols-2" id="container">
-        <div class="col" >
-          <img v-bind:src="image" alt="">
+        <div class="col">
+            <product></product>
         </div>
-        <div class="col" >
-          <h1>{{ title }}</h1>
-          <p v-if="stock > 3">In Stock</p>
-
-          <p v-else>Out of Stock</p>
-          <ul>
-            <li v-for="details in detail">{{details}}</li>
-          </ul>
-        <div>Color:</div>
-        <div v-for="(varient,index) in varients"
-          :key="varient.color_id"
-          class="color-box "
-          :style="{backgroundColor:varient.color}"
-          @mouseover="colorVarient(index)">
+        <div class="col">
+            <product></product>
         </div>
-        <br>
-        <button type="button" name="button" v-on:click="addtoCart" :disabled="stock<4">Add to Cart</button>
-        <p class="cart-box">Cart ({{cart}})</p>
       </div>
-    </div>
     <script type="text/javascript" src="vue.js"></script>
-    <script type="text/javascript" src="test.js"></script>
+    <script type="text/javascript" src="component.js"></script>
   </body>
 </html>
