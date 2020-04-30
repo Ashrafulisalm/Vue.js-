@@ -1,14 +1,3 @@
-Vue.component('user-review',{
-  template:'',
-  data(){
-    return {
-      name:null,
-      rating:null,
-      review:null
-    }
-  }
-})
-
 var app =new Vue({
   el:'.form',
   data:{

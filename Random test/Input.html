@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="input">
+      <h1>{{title.toLocaleUpperCase()}}</h1>
+      <div class="">
+        <input type="text" v-model='newProduct' name="" value="">
+        <button class="button-success" type="button" @click="saveProduct" name="" value="">Save Product</button>
+      </div>
+      <ul>
+        <li v-for="product in products">{{product}}</li>
+      </ul>
+      <button class="button-success" type="button" @click="deleteProduct" name="" value="">Delete Product</button>
+
+    </div>
+
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" >
+      new Vue({
+        el:'.input',
+        data:{
+          title:"Product Listing App",
+          newProduct:'',
+          products:[
+            'iPhone 11 pro',
+            'Macbook Air'
+          ]
+        },
+        methods:{
+          saveProduct(){
+            this.products.push(this.newProduct)
+            this.newProduct=''
+          },
+          deleteProduct(){
+            this.products.pop()
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

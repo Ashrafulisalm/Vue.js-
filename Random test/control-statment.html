@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="loop">
+      <ul>
+        <li v-for="car in cars" v-show="car.price>130000" >
+          Car Name: {{car.carname}} And Price: {{car.price}}$ <br>
+           It is {{car.price>150000? 'Ultra Luxary':' Luxary'}} car.
+           <div class="">
+             <p v-if="car.qty>=7" >Available</p>
+             <p v-else-if="car.qty<7 && car.qty>4" >Limited</p>
+             <p v-else >Almost Sold</p>
+           </div>
+         </li>
+      </ul>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript" src="control.js"></script>
+  </body>
+</html>
