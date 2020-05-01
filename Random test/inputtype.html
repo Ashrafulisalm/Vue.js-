@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="inputtype">
+      <h1>{{title}}</h1>
+      <div class="">
+        <p>Single line input:</p>
+        <input type="text" v-model='text' name="" value="">
+        <p>You Entered: {{text}}</p>
+      </div>
+      <div class="">
+        <p>Multiline Input:</p>
+        <textarea name="name" v-model='textarea' rows="4" cols="80"></textarea><br>
+        <span>You Entered: </span>
+        <p style="white-space: pre-line;">{{textarea}}</p>
+      </div>
+      <div class="">
+        <p>Select from the list(Education):</p>
+        <input type="checkbox" id="ssc" v-model='checkeddata' name="SSC" value="SSC">
+        <label for="ssc">SSC</label>
+        <input type="checkbox" id="hsc" v-model='checkeddata' name="HSC" value="HSC">
+        <label for="hsc">HSC</label>
+        <input type="checkbox" id="bsc" v-model='checkeddata' name="BSC" value="BSC">
+        <label for="bsc">B.Sc</label>
+        <p>You Checked: {{checkeddata}}</p>
+      </div>
+      <div class="">
+        <p>Select your Gender:</p>
+        <input type="radio" id="male" v-model="radiodata" name="" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" v-model="radiodata" name="" value="Female">
+        <label for="female">Female</label>
+        <p>You are - {{radiodata}}</p>
+      </div>
+      <div class="">
+        <select v-model="selected">
+          <option disabled value="">Please select one</option>
+          <option>Web Development</option>
+          <option>Androied Development</option>
+          <option>Game Development</option>
+        </select>
+        <span>You have Selected: {{ selected }}</span>
+      </div>
+
+
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+      new Vue({
+        el:'.inputtype',
+        data:{
+          title:'Different type inputs.',
+          text:'',
+          textarea:'',
+          checkeddata:[],
+          radiodata:'',
+          selected:''
+
+        }
+      })
+    </script>
+  </body>
+</html>

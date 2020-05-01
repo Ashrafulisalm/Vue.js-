@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div class="component">
+      <h1>{{title}}</h1>
+      <div class="row row-col-2">
+        <phone></phone>
+        <watch></watch>
+        <laptop></laptop>
+      </div>
+
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+      Vue.component('phone',{
+        data(){
+          return {
+            phone:{
+              name:'iPhone',
+
+              details:{
+                  Model:'iPhone 11',
+                  display:'5.39"',
+                  price:'599$'
+              },
+              selectcolor:0,
+              imagedata:[
+                {id:0,img:'image/black.png',color:'Black'},
+                {id:1,img:'image/red.png',color:'Red'},
+                {id:2,img:'image/green.png',color:'Green'}
+              ]
+            }
+          }
+        },
+        template:'<div><h3>{{phone.name}}</h3><img :src="imgs" alt="" width="300" height="350"><div class=""><ul><li v-for="(value,name) in phone.details">{{name}}: {{value}}</li></ul></div><div><button type="button" name="button" v-for="(image,index) in phone.imagedata" @click="selectedcolor(index)">{{image.color}}</button></div></div>',
+
+        methods:{
+          selectedcolor(index){
+            return this.phone.selectcolor=index
+          }
+        },
+        computed:{
+          imgs(){
+            return this.phone.imagedata[this.phone.selectcolor].img
+          }
+        }
+      })
+
+
+      Vue.component('watch',{
+        data(){
+          return {
+            name:'Casio Watch',
+            img:'image/casio.png'
+          }
+        },
+        template:'<div><h3>{{name}}</h3><img :src="img" alt="" width="300" height="350"></div>'
+      })
+
+
+      Vue.component('laptop',{
+        data(){
+          return {
+            name:'Apple Macbook Pro',
+            img:'image/apple.jpg'
+          }
+        },
+        template:'<div><h3>{{name}}</h3><img :src="img" alt="" width="300" height="350"></div>'
+      })
+
+      new Vue({
+        el:'.component',
+        data:{
+          title:'Component in Vue'
+        }
+      })
+    </script>
+  </body>
+</html>

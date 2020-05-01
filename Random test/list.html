@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <div id="list">
+      <h1>{{title}}</h1>
+      <p>Simple for loop:</p>
+      <ol>
+        <li v-for='car in cars'>{{car}}</li>
+      </ol>
+      <p>For loop in objects</p>
+      <ul>
+        <li v-for='object in objects'>{{object}}</li>
+      </ul>
+      <p>List with Name & value:</p>
+      <ul>
+        <li v-for='(value,name) in objects'>{{name}}: {{value}}</li>
+      </ul>
+      <p>List with index:</p>
+      <div v-for='(value,name,index) in objects'>
+        <p>{{index}}. {{name}}: {{value}}</p>
+      </div>
+      <p>Simple for loop:</p>
+      <ol>
+        <li v-for='cars in 2'>{{cars}}</li>
+      </ol>
+    </div>
+
+    <script type="text/javascript" src="vue.js"></script>
+    <script type="text/javascript">
+      new Vue({
+        el:'#list',
+        data:{
+          title:'List Rendaring',
+          cars:[
+            'BMW',
+            "Audi",
+            'Marcedies'
+          ],
+          objects:{
+            name:'iPhone 5s',
+            color:'Black',
+            price:'399$'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>
